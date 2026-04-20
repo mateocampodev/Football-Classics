@@ -1,0 +1,965 @@
+:root {
+    /* Colores de la marca */
+    --primary-color: rgb(0,24,59);
+    --secondary-color: rgb(1, 32, 78);
+    --alternative-color: #ba5f0f;
+
+    /* Colores para textos */
+    --primary-text: aliceblue ;
+    --secondary-text: #efb533;
+
+    /* Colores para sombras */
+    --box-shadow-color: rgba(1, 116, 248, 0.411);
+    --box-shadow-secondary: rgba(5, 42, 85, 0.466);
+
+    /* Colores para botones */
+    --buttons-bg: #efb33381; 
+    --buttons-bg-2: #efb333af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: grid;
+    background-color: var(--primary-color);
+    grid-template-rows: auto 1fr auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 15px 0px;
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+
+.logo {
+    padding: 0px 15px;
+    transition: all .3s ease-in-out;
+}
+
+.logo a img {
+    width: 60px;
+    height: 60px;
+}
+
+.logo:hover {
+    transform: scale(1.1);    
+}
+
+.nav-links {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0px;
+    width: 100%;
+    top: 100%;
+    background-color: var(--secondary-color);
+    z-index: 10;
+}
+
+.nav-links li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links li a {
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--secondary-text);
+    transform: translateY(-5px);
+}
+
+a.active {
+    border-bottom: 2px solid var(--secondary-text);
+    border-radius: 4%;
+}
+
+.label-check {
+    display: block;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+.check-menu {
+    display: none;
+}
+
+/* Menú hamburguesa */
+
+.check-menu:checked + .nav-links {
+    display: block;
+}
+
+/* Hero */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("../assets/images/hero-mobile.jpeg") no-repeat top/cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 30, 50, 0.2);
+    z-index: 1;
+}
+
+.hero-txt {
+    width: 80%;
+    text-align: center;
+    color: var(--primary-text);
+    z-index: 2;
+    animation: aparecer .8s ease forwards;
+}
+
+.hero-txt h1 {
+    margin-bottom: 0.5rem;
+    font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.hero-txt p {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.hero .show-more {
+    margin-top: 4%;
+    padding: 12px 24px;
+    animation: aparecer .8s ease forwards;
+}
+
+/* Sections */
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.content h2 {
+    font-size: clamp(1.5rem, 1.8vw, 2vw);
+    padding: 5px;
+    color: aliceblue;
+    text-align: center;
+}
+
+
+.content p {
+    font-size: clamp(0.8rem, 1vw, 1.5vw);
+}
+
+/* Contenedores generales */
+
+.container {
+   width: 70%;
+}
+
+.container-mid {
+    width: 80%;
+}
+
+.container-xl {
+    width: 90%;
+}
+
+/* Clases personalizadas */
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mb-100 {
+    margin-bottom: 100px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.mb-1r {
+    margin-bottom: 1rem;
+}  
+
+/* Sección Intro (Home) */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 5px 10px var(--box-shadow-color);
+    border-radius: 4%;
+    margin-bottom: 10%;
+}
+
+.intro-txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: aliceblue;
+}
+
+/* Sección tournaments (Home) */
+
+.tournaments {
+    padding: 30px;
+    background-color: aliceblue;
+}
+
+.tournaments-logos {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 3vh;
+}
+
+.tournaments-logo {
+    height: auto;
+    opacity: 0.8;
+    transition: all .15s ease-in-out;
+}
+
+.tournaments-logo img {
+    width: auto;
+    height: 8vh;
+}
+
+.tournaments-logo:hover {
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/* Sección Últimos lanzamientos (Home) */
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 1px solid rgb(19, 0, 71);
+    border-radius: 4%;
+    box-shadow: 0px 5px 10px var(--box-shadow-color);
+    transition: all .3s ease-in-out;
+    width: 80%;
+}
+
+
+.card-text h3 {
+    font-size: clamp(1rem, 0.5vw, 2rem);
+    margin-bottom: 1vh;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4%;
+}
+
+.card-text {
+    color: aliceblue;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+
+/* Cambio de imágen con hover para mostrar la parte trasera de las camisetas */
+
+.card:first-child img:hover {
+    content: url("../assets/images/boca-2002-back.jpg");
+}
+
+.card:nth-child(2) img:hover {
+    content: url("../assets/images/roma-99-back.jpg");
+}
+
+.card:nth-child(3) img:hover {
+    content: url("../assets/images/west-ham-2005-back.png");
+}
+
+.card:nth-child(4) img:hover {
+    content: url("../assets/images/palermo-14-15-back.jpg");
+}
+
+/* Galería sección momentos icónicos (Home) */
+
+#top-moments {
+    padding-bottom: 50px;
+}
+
+#top-moments h2 {
+    margin-bottom: 50px;
+}
+
+.moments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1.5fr 1fr 1fr 1.5fr;
+    box-shadow: 1px 5px 10px var(--box-shadow-color);
+    border-radius: 4%; 
+    height: 90vh;
+}
+
+.moment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 45, 104);
+    overflow: hidden;
+    position: relative;
+    gap: 2%;
+}
+
+.moment-txt {
+    color: aliceblue;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+
+.show-more {
+    text-decoration: none;
+    background-color: var(--buttons-bg-2);
+    color: black;
+    padding: 7px 15px;
+    border-radius: 4%;
+    z-index: 10;
+    transition: .5s ease-in-out;
+}
+
+.moment .show-more {
+    opacity: 0;
+}
+
+.show-more:hover {
+    cursor: pointer;
+    background-color: var(--alternative-color);
+    color: var(--primary-text);
+}
+
+.moment-img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: .4s ease-in-out;
+}
+
+
+.moment:hover .moment-img {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.moment:hover .moment-txt, .moment:hover .show-more {
+    opacity: 1;
+}
+
+.moment:first-child, .moment:last-child {
+    grid-column: 1/4;
+}
+
+.moment:first-child {
+    border-top-left-radius: 4% ;
+    border-top-right-radius: 4% ;
+}
+
+.moment:nth-child(5) {
+    display: none;
+}
+
+.moment:last-child {
+    border-bottom-left-radius: 4% ;
+    border-bottom-right-radius: 4% ;
+}
+
+
+.moment:nth-child(2), .moment:nth-child(3), .moment:nth-child(4) {
+    grid-row: 2/4 ;
+    height: 100%
+}
+
+.moment:first-child .moment-img {
+    background: url("../assets/images/zidane-vs-brasil-2006.jpg") no-repeat center/cover;
+    border-top-left-radius: 4%;
+    border-top-right-radius: 4%;
+}
+
+.moment:nth-child(2) .moment-img {
+    background: url("../assets/images/eurocopa-cristiano.jpg") no-repeat center/cover;
+}
+
+.moment:nth-child(3) .moment-img {
+    background: url("../assets/images/messi-campeon-del-mundo.jpg") no-repeat center/cover;
+}
+
+.moment:nth-child(4) .moment-img {
+    background: url("../assets/images/liverpool-milan-2005.jpg") no-repeat center/cover;
+}
+
+.moment:last-child .moment-img {
+    background: url("../assets/images/boca-2000.jpg") no-repeat top/cover;
+    border-bottom-left-radius: 4%;
+    border-bottom-right-radius: 4%;
+}
+
+/* Página de Productos */
+
+#products-section {
+    height: auto;
+    padding: 5% 0px;
+    animation: aparecer .8s ease forwards;
+}
+
+/* Cambio de imágen con hover para mostrar la parte trasera de las camisetas (Productos) */
+
+.card:nth-child(5) img:hover {
+    content: url("../assets/images/man-city-2012-back.jpg");
+}
+
+.card:nth-child(6) img:hover {
+    content: url("../assets/images/villareal-05-back.jpg");
+}
+
+.card:nth-child(7) img:hover {
+    content: url("../assets/images/barcelona-11-12-back.jpg");
+}
+
+.card:nth-child(8) img:hover {
+    content: url("../assets/images/real-madrid-06-07-back.jpg");
+}
+
+.card:nth-child(9) img:hover {
+    content: url("../assets/images/francia-98-back.jpg");
+}
+
+.card:nth-child(10) img:hover {
+    content: url("../assets/images/alemania-1998-back.jpeg");
+}
+
+.card:nth-child(11) img:hover {
+    content: url("../assets/images/ajax-00-01-back.jpg");
+}
+
+.card:nth-child(12) img:hover {
+    content: url("../assets/images/parma-95-back.jpeg");   
+}
+
+/* Página Presupuesto */
+
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    background: url("../assets/images/bg-contact.jpg") no-repeat top/cover fixed;
+}
+
+#contact::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 30, 80, 0.3);
+    z-index: 1;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 80px;
+    background-color: #df700e1e;
+    backdrop-filter: blur(5px);
+    border-radius: 4%;
+    box-shadow: 0px 5px 50px #9476367e;
+    z-index: 2;
+    animation: aparecer .8s ease forwards;
+}
+
+.contact-container h2 {
+    color: var(--primary-text);
+    margin-bottom: 50px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--primary-text);
+    width: 100%;
+    font-weight: 500;
+}
+
+input, textarea {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--primary-text);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact-form > input {
+    margin-bottom: 15px;
+    padding: 5px;
+    border: 0px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.privacy-policy {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: clamp(0.7rem, 0.8vw, 1rem);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 2%;
+    width: 50%;
+}
+
+.form-buttons input {
+    cursor: pointer;
+    width: 50%;
+    background-color: var(--buttons-bg);
+    border: 0px;
+    border-radius: 2%;
+    padding: 10px;
+    transition: all .2s ease;
+}
+
+.form-buttons input:hover {
+    background-color: var(--alternative-color);
+    color: var(--primary-text);
+}
+
+/* Página Contacto */
+
+#company {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+#company article {
+   display: flex;
+   flex-direction: column;
+   animation: aparecer .8s ease forwards;
+}
+
+.company-txt {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 800px;
+}
+
+.company-txt h2 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.company-txt p {
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+}
+
+.divider {
+    margin: 2rem auto;
+    background-color: var(--alternative-color);
+    width: 60%;
+    height: 0.5vh;
+    border-radius: 4%;
+}
+
+.company-imgs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.company-imgs img:nth-child(1) {
+    order: 2;
+    width: 40%;
+    height: auto;
+}
+
+.company-imgs img:nth-child(2) {
+    order: 1;
+    width: 100%;
+    border-radius: 1%;
+    box-shadow: 0px 5px 10px var(--box-shadow-secondary);
+    margin-bottom: 30px;
+}
+ 
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--secondary-color);
+}
+
+.info-empresa {
+    color: var(--primary-text);
+}
+
+.redes a {
+    text-decoration: none;
+}
+
+.redes a svg {
+    transition: all .2s ease;
+    opacity: 0.7;
+    height: auto;
+}
+
+.redes a svg:hover {
+    transform: translateY(-5px);
+    stroke: var(--secondary-text);
+    opacity: 1;
+}
+
+.redes a:nth-child(1) svg:hover {
+    fill: #dd2a7b;
+}
+
+.redes a:nth-child(2) svg:hover {
+    fill: black;
+}
+
+.redes a:nth-child(3) svg:hover {
+    fill: #c4302b;
+}
+
+.redes a:nth-child(4) svg:hover {
+    fill: #0077b5;
+}
+
+
+/* Animaciones */
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* Media queries - Web Responsive */
+
+
+@media (min-width: 1025px) {
+
+    .navbar {
+        position: inherit;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        position: inherit;
+        gap: 15px;
+        padding: 0px 15px;
+        list-style: none;
+        z-index: 10;
+        background-color: rgba(229, 231, 233, 0);
+    }
+
+    .label-check {
+        display: none;
+    }
+
+    /* Hero */
+
+    .hero {
+        background: url("../assets/images/hero-img.jpg") no-repeat top/cover;
+    }
+
+    .hero .show-more {
+        margin-top: 1%;
+        padding: 15px 30px;
+    }
+
+    /* Sección Intro (Home) */
+
+    .intro {
+        flex-direction: row;
+    }
+
+    .intro img {
+        max-width: 35vw;
+    }
+
+    .intro-txt {
+        padding: 0px 20px;
+    }
+
+    /* Tournaments (Home) */
+
+    .tournaments {
+        padding: 50px 30px;
+    }
+
+    .tournaments-logos {
+        display: flex;
+        justify-content: space-between;
+    }   
+
+    .tournaments-logo img {
+        width: auto;
+        height: 12vh;
+        }
+
+    /* Últimos lanzamientos (Home) */
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card {
+        display: grid;
+        grid-template-rows: 85% 15%;
+        max-width: 20vw; 
+        padding-bottom: 20px;
+    }
+
+    /* Sección Momentos Icónicos (Home) */
+
+    .moments {
+        width: 100%;
+        min-height: 100vh;
+        justify-self: center;
+        column-gap: 20px;
+        row-gap: 20px;
+        box-shadow: 0px 0px 0px ;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .moment {
+        border-radius: 4%;
+    }
+
+    .moment-txt {
+        max-width: 70%;
+    }
+
+    .moment:first-child {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .moment:first-child .moment-img {
+        background-position-x: 75%;
+    }
+
+    
+    .moment:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    
+    .moment:nth-child(3) {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .moment:nth-child(3) .moment-img {
+        background-position-y: 20%;
+    }
+
+    
+    .moment:nth-child(4) {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .moment:nth-child(5) {
+        display: flex;
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    .moment:nth-child(5) .moment-img {
+        background: url("../assets/images/maradona-vs-juventus.jpeg") no-repeat center/cover;
+    }
+    
+    .moment:last-child {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    /* Página Presupuesto */
+
+    .contact-container {
+        width: 50%;
+    }
+
+    .contact-form {
+        width: 60%;
+    }
+
+    /* Página Contacto */
+
+    #company article {
+        align-items: center;
+    }    
+
+    .company-txt {
+        width: 80%;
+        margin-bottom: 50px;
+    }
+
+    .divider {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        width: 50%;
+    }
+
+    .company-imgs {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10%;
+    }
+
+    .company-imgs img:nth-child(2) {
+        order: 2;
+        width: 55%;
+    }
+ 
+    .company-imgs img:nth-child(1) {
+        width: 20%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+
+    /* Hero */
+
+    .hero .show-more {
+        margin-top: 2%;
+    }
+
+    /* Tournaments (Home) */
+
+    .tournaments {
+        padding: 30px;
+    }
+
+    .tournaments-logos {
+        display: flex;
+        justify-content: space-between;
+    }   
+
+    .tournaments-logo img {
+        width: auto;
+        height: 9vh;
+    }
+
+
+    .cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        max-width: 35vw; 
+    }
+
+    
+    .card-text {
+        height: 10vh;
+    }
+
+    /* Sección Momentos Icónicos (Home) */
+
+    .moments {
+        grid-template-rows: 1.8fr 1fr 1fr 1.8fr;
+        width: 80%;
+        height: 90vh;
+        justify-self: center;
+    }
+
+    /* Página Contacto */
+
+    .company-imgs img:nth-child(2) {
+        order: 1;
+        width: 85%;
+    }
+ 
+    .company-imgs img:nth-child(1) {
+        max-width: 20%;
+    }
+}
